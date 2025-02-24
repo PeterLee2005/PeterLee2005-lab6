@@ -13,17 +13,31 @@ public class Rotor {
     }
     
     public boolean rotate(){
-        //TODO
+        // Rotate by moving the last char to the front and putting the rest of the string after it
+        rotorValues = rotorValues.charAt(rotorValues.length() - 1) + rotorValues.substring(0, rotorValues.length() - 1);
                
+        // True if full rotation
+        return rotorValues.charAt(0) == startChar;
     }
     
 
     public int indexOf(char c){
-        //TODO
+        for (int i=0; i<rotorValues.length(); i++) {
+            if (charAt(i) == c) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public char charAt(int idx){
-        //TODO
+        if (idx < 0 || idx >= rotorValues.length()) {
+            return 'z';
+        }
+        
+        char rotorArray[] = rotorValues.toCharArray();
+        return rotorArray[idx];
+
     }
 }
     
